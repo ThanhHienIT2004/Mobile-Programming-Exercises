@@ -54,9 +54,11 @@ fun HomeScreen(viewModel: TaskViewModel = TaskViewModel(), navController: NavCon
                             .padding(16.dp)
                     ) {
                         items(tasks) { task ->
-                            TaskItem(task = task, onClick = {
-                                navController.navigate("detail/${task.id}")
-                            })
+                            TaskItem(
+                                task = task,
+                                onClick = {
+                                    navController.navigate("detail/${task.id}")
+                                })
                         }
                     }
                 }

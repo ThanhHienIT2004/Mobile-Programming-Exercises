@@ -13,6 +13,8 @@ import com.example.baitaplaptrinhdidong.screens.week4.w4_2.view.WelcomeScreen
 import com.example.baitaplaptrinhdidong.screens.week4.w4_2.view.BottomNavItem
 import com.example.baitaplaptrinhdidong.screens.week4.w4_2.view.DateScreen
 import com.example.baitaplaptrinhdidong.screens.week4.w4_2.view.SettingScreen
+import com.example.baitaplaptrinhdidong.screens.week6.w6.ui.screens.AddNewScreen
+import com.example.baitaplaptrinhdidong.screens.week6.w6.ui.screens.ListScreen
 import com.example.uthsmarttasks.view.ThirdIntroduction
 
 @Composable
@@ -33,7 +35,8 @@ fun NavigationGraph() {
             ThirdIntroduction(navController)
         }
         composable(BottomNavItem.Home.route) { HomeScreen(navController = navController) }
-//        composable(BottomNavItem.Document.route) { MenuScreen() }
+        composable(BottomNavItem.Document.route) { ListScreen(navController = navController) }
+        composable(BottomNavItem.AddNew.route) { (AddNewScreen(navController = navController)) }
         composable(BottomNavItem.Setting.route) { (SettingScreen()) }
         composable(BottomNavItem.Date.route) { DateScreen() }
 

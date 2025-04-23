@@ -78,8 +78,8 @@ fun BottomNavBar(
                     }
                     IconButton(
                         onClick = {
-//                            selectedItem = index
-//                            navController.navigate(item.route)
+                            selectedItem = index
+                            navController.navigate(item.route)
                         }
                     ) {
                         Icon(
@@ -102,12 +102,18 @@ fun BottomNavBar(
                 .size(64.dp)
                 .offset(y = (-32).dp)
         ) {
-            Icon(
-                imageVector = Icons.Default.Add,
-                contentDescription = "Add",
-                tint = Color.White,
-                modifier = Modifier.size(28.dp),
-            )
+            IconButton(
+                onClick = {
+                    navController.navigate(BottomNavItem.AddNew.route)
+                }
+            ){
+                Icon(imageVector = Icons.Default.Add,
+                    contentDescription = "Add",
+                    tint = Color.White,
+                    modifier = Modifier.size(28.dp),
+                )
+            }
+
         }
     }
 }

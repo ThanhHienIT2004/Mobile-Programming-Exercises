@@ -1,6 +1,7 @@
 package com.example.baitaplaptrinhdidong.screens.week4.w4_2.view
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
@@ -16,10 +17,11 @@ fun getDocumentIcon(): ImageVector {
 }
 
 sealed class BottomNavItem(val route: String, val title: String, val icon: ImageVector) {
-    object Home : BottomNavItem("home", "Home", Icons.Filled.Home)
-    object Date : BottomNavItem("date", "Date", Icons.Filled.DateRange)
-    object Setting : BottomNavItem("setting", "Setting", Icons.Filled.Settings)
-    object Document : BottomNavItem("document", "Document",Icons.Filled.Menu )
+    data object Home : BottomNavItem("home", "Home", Icons.Filled.Home)
+    data object Date : BottomNavItem("date", "Date", Icons.Filled.DateRange)
+    data object Setting : BottomNavItem("setting", "Setting", Icons.Filled.Settings)
+    data object Document : BottomNavItem("document", "Document",Icons.Filled.Menu)
+    data object AddNew : BottomNavItem("addnew", "AddNew",Icons.Filled.Add)
 
     companion object {
         fun createNewItem(route: String, title: String, icon: ImageVector): BottomNavItem {

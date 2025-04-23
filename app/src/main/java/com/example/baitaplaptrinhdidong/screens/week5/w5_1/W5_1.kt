@@ -176,28 +176,28 @@ class GoogleSignInManager(
             onSuccess() // Gọi callback khi đăng nhập thành công
 
             //Hien thong bao neu can
-        // val account = task.getResult(Exception::class.java)
-//            val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-//            auth.signInWithCredential(credential)
-//                .addOnCompleteListener { task ->
-//                    if (task.isSuccessful) {
-//                        val user = auth.currentUser
-//                        Toast.makeText(
-//                            context,
-//                            "Đăng nhập thành công: ${user?.displayName}",
-//                            Toast.LENGTH_LONG
-//                        ).show()
-//                        onSuccess() // Gọi callback khi đăng nhập thành công
-//                    } else {
-//                        val errorMessage = task.exception?.message ?: "Lỗi không xác định"
-//                        Toast.makeText(
-//                            context,
-//                            "Đăng nhập thất bại: $errorMessage",
-//                            Toast.LENGTH_LONG
-//                        ).show()
-//                        onFailure(errorMessage)
-//                    }
-//                }
+         val account = task.getResult(Exception::class.java)
+            val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+            auth.signInWithCredential(credential)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        Toast.makeText(
+                            context,
+                            "Đăng nhập thành công: ${user?.displayName}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        onSuccess() // Gọi callback khi đăng nhập thành công
+                    } else {
+                        val errorMessage = task.exception?.message ?: "Lỗi không xác định"
+                        Toast.makeText(
+                            context,
+                            "Đăng nhập thất bại: $errorMessage",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        onFailure(errorMessage)
+                    }
+                }
 
         } catch (e: Exception) {
             val errorMessage = e.message ?: "Lỗi không xác định"
